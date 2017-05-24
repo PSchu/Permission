@@ -39,7 +39,6 @@ internal extension Permission {
         guard case .Notifications(let settings) = type else { fatalError() }
         
         NotificationCenter.addObserver(self, selector: .requestingNotifications, name: UIApplicationWillResignActiveNotification)
-        notificationTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: .finishedRequestingNotifications, userInfo: nil, repeats: false)
         
         Application.registerUserNotificationSettings(settings)
     }
